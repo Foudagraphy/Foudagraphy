@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deutsch A1 - الحقيبة الشاملة لمنهج Netzwerk neu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --success: #16a34a;
+      --danger: #dc2626;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 35px 0 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #93c5fd;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    h1 { font-size: 24px; font-weight: 800; }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: #e2e8f0;
+      padding: 6px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      flex: 1;
+      min-width: 140px;
+      border: none;
+      background: transparent;
+      padding: 10px 14px;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: var(--card-bg);
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-card {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+    .section-card.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 19px;
+      color: var(--secondary);
+      margin-bottom: 14px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+    .rule-box {
+      background: #eff6ff;
+      border-right: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 13.5px;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 13.5px;
+    }
+    th, td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    th { background: #f8fafc; color: var(--text-muted); font-weight: 700; }
+    tr:last-child td { border-bottom: none; }
+
+    .de-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      direction: ltr;
+      display: inline-block;
+      color: #0f172a;
+    }
+
+    .audio-btn {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: var(--primary);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .audio-btn:hover { background: var(--primary); color: white; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .info-card-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+    @media print {
+      body { background: white; color: black; font-size: 12px; }
+      header, .nav-tabs, .audio-btn, .btn-outline { display: none !important; }
+      .section-card { display: block !important; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; page-break-inside: avoid; }
+      .table-container { border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div>
+        <span class="badge">Netzwerk neu A1 - مراجعة شاملة</span>
+        <h1>ملخص وقواعد اللغة الألمانية للبدايات</h1>
+        <p style="color: #94a3b8; font-size: 13px; margin-top: 4px;">تجميع شامل: الضمائر، الأفعال، التقديم، أسماء الإشارة، والأسئلة</p>
+      </div>
+      <div>
+        <button class="btn-outline" onclick="window.print()">طباعة كـ PDF 🖨️</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="openTab('tab1')">1. الضمائر والأفعال</button>
+      <button class="tab-btn" onclick="openTab('tab2')">2. الجمل وأسماء الإشارة</button>
+      <button class="tab-btn" onclick="openTab('tab3')">3. تقديم الآخرين والمهن</button>
+      <button class="tab-btn" onclick="openTab('tab4')">4. التعارف والحال والوداع</button>
+      <button class="tab-btn" onclick="openTab('tab5')">5. الأبجدية والأرقام والواجب</button>
+    </div>
+
+    <!-- TAB 1: الضمائر وتصريف الأفعال -->
+    <div id="tab1" class="section-card active">
+      <h2>1. الضمائر وتصريف الأفعال المنتظمة والشواذ</h2>
+      <div class="rule-box">
+        <strong>💡 قاعدة التصريف القياسية (est - ten - ten):</strong> نحذف الـ <span class="de-text">-en</span> من المصدر ونضيف نهايات الفاعل:
+        <br>
+        <code>ich (-e)</code> | <code>du (-st)</code> | <code>er/sie/es (-t)</code> | <code>wir (-en)</code> | <code>ihr (-t)</code> | <code>sie/Sie (-en)</code>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>الضمير</th>
+              <th>المعنى</th>
+              <th>kommen (يأتي)</th>
+              <th>wohnen (يسكن)</th>
+              <th>heißen (يُدعى)</th>
+              <th>sprechen (يتحدث)</th>
+              <th>sein (يكون)</th>
+              <th>نطق</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="de-text">ich</span></td>
+              <td>أنا</td>
+              <td><span class="de-text">komme</span></td>
+              <td><span class="de-text">wohne</span></td>
+              <td><span class="de-text">heiße</span></td>
+              <td><span class="de-text">spreche</span></td>
+              <td><span class="de-text">bin</span></td>
+              <td><button class="audio-btn" onclick="speak('Ich komme, ich wohne, ich spreche, ich bin')">🔊</button></td>
+            </tr>
+            <tr>
+              <td><span class="de-text">du</span></td>
+              <td>أنتَ / أنتِ</td>
+              <td><span class="de-text">kommst</span></td>
+              <td><span class="de-text">wohnst</span></td>
+              <td><span class="de-text">heißt</span> <small>(t فقط)</small></td>
+              <td><span class="de-text" style="color: #dc2626;">sprichst</span> <small>(e&rarr;i)</small></td>
+              <td><span class="de-text">bist</span></td>
+              <td><button class="audio-btn" onclick="speak('Du kommst, du sprichst, du bist')">🔊</button></td>
+            </tr>
+            <tr>
+              <td><span class="de-text">er / sie / es</span></td>
+              <td>هو / هي / المحايد</td>
+              <td><span class="de-text">kommt</span></td>
+              <td><span class="de-text">wohnt</span></td>
+              <td><span class="de-text">heißt</span></td>
+              <td><span class="de-text" style="color: #dc2626;">spricht</span> <small>(e&rarr;i)</small></td>
+              <td><span class="de-text">ist</span></td>
+              <td><button class="audio-btn" onclick="speak('Er kommt, sie spricht, es ist')">🔊</button></td>
+            </tr>
+            <tr>
+              <td><span class="de-text">wir</span></td>
+              <td>نحن</td>
+              <td><span class="de-text">kommen</span></td>
+              <td><span class="de-text">wohnen</span></td>
+              <td><span class="de-text">heißen</span></td>
+              <td><span class="de-text">sprechen</span></td>
+              <td><span class="de-text">sind</span></td>
+              <td><button class="audio-btn" onclick="speak('Wir kommen, wir sind')">🔊</button></td>
+            </tr>
+            <tr>
+              <td><span class="de-text">ihr</span></td>
+              <td>أنتم</td>
+              <td><span class="de-text">kommt</span></td>
+              <td><span class="de-text">wohnt</span></td>
+              <td><span class="de-text">heißt</span></td>
+              <td><span class="de-text">sprecht</span></td>
+              <td><span class="de-text">seid</span></td>
+              <td><button class="audio-btn" onclick="speak('Ihr kommt, ihr seid')">🔊</button></td>
+            </tr>
+            <tr>
+              <td><span class="de-text">sie / Sie</span></td>
+              <td>هم / حضرتك</td>
+              <td><span class="de-text">kommen</span></td>
+              <td><span class="de-text">wohnen</span></td>
+              <td><span class="de-text">heißen</span></td>
+              <td><span class="de-text">sprechen</span></td>
+              <td><span class="de-text">sind</span></td>
+              <td><button class="audio-btn" onclick="speak('Sie kommen, Sie sind')">🔊</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: الجمل، الأسئلة، أسماء الإشارة والكوما -->
+    <div id="tab2" class="section-card">
+      <h2>2. هيكل الجملة، أداة الإشارة (Das)، وفرق الفاصلة (,)</h2>
+      
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>اسم الإشارة العام (Das)</span>
+            <button class="audio-btn" onclick="speak('Das ist Lukas. Das sind Lukas und Julia.')">🔊</button>
+          </div>
+          <p>كلمة <strong>Das</strong> ثابتة لا تتغير مع المفرد أو الجمع، والفعل بعدها هو الذي يتغير:</p>
+          <ul style="margin-right: 18px; margin-top: 6px; font-size: 13px;">
+            <li><strong>للمفرد:</strong> <span class="de-text">Das ist...</span> (هذا يكون / هذه تكون)</li>
+            <li><strong>للجمع:</strong> <span class="de-text">Das sind...</span> (هؤلاء يكونون)</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>مواقع الفعل الصارمة</span>
+            <button class="audio-btn" onclick="speak('Ich lerne Deutsch. Heute lerne ich Deutsch. Lernst du Deutsch?')">🔊</button>
+          </div>
+          <ul style="margin-right: 18px; font-size: 13px;">
+            <li><strong>الجملة والسؤال بأداة:</strong> الفعل في <strong>المركز الثاني (Position 2)</strong> دائماً.</li>
+            <li><strong>السؤال بهل (Ja/Nein):</strong> الفعل يقفز إلى <strong>المركز الأول (Position 1)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top: 15px;">
+        <strong>⚠️ قاعدة الكوما (,) بعد الاسم:</strong>
+        <br>• <strong>مع كوما (مخاطب أمامك):</strong> <span class="de-text">Ali, wohnst du hier?</span> &larr; منادى يُصرف الفعل معه كـ <span class="de-text">du</span>.
+        <br>• <strong>بدون كوما (فاعل غائب):</strong> <span class="de-text">Ali wohnt in Kairo.</span> &larr; طرف ثالث يُعامل كـ <span class="de-text">er</span> ويأخذ الفعل اللاحقة <span class="de-text">-t</span>.
+      </div>
+    </div>
+
+    <!-- TAB 3: تقديم شخص آخر والمهن -->
+    <div id="tab3" class="section-card">
+      <h2>3. تقديم شخص آخر (Andere Personen vorstellen) والمهن</h2>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">عند تقديم شخص آخر، نستخدم الضمير <span class="de-text">er</span> (هو للمذكر) أو <span class="de-text">sie</span> (هي للمؤنث) وينتهي الفعل غالباً بـ <span class="de-text">-t</span>:</p>
+
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>تقديم صديق (Männlich)</span>
+            <button class="audio-btn" onclick="speak('Das ist mein Freund Karim. Er kommt aus Ägypten und wohnt in Berlin. Er ist Ingenieur von Beruf.')">🔊</button>
+          </div>
+          <p class="de-text" style="font-size: 13.5px; line-height: 1.7;">
+            Das ist mein Freund, Karim.<br>
+            Er kommt aus Ägypten.<br>
+            Er wohnt jetzt in Berlin.<br>
+            Er ist Ingenieur von Beruf.<br>
+            Er spricht Arabisch, Englisch und Deutsch.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>تقديم زميلة (Weiblich)</span>
+            <button class="audio-btn" onclick="speak('Das ist meine Kollegin Frau Weber. Sie kommt aus Österreich und wohnt in Wien. Sie ist Lehrerin von Beruf.')">🔊</button>
+          </div>
+          <p class="de-text" style="font-size: 13.5px; line-height: 1.7;">
+            Das ist meine Kollegin, Frau Weber.<br>
+            Sie kommt aus Österreich.<br>
+            Sie wohnt in Wien.<br>
+            Sie ist Lehrerin von Beruf.<br>
+            Sie spricht Deutsch und Französisch.
+          </p>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top: 15px;">
+        <strong>💡 تأنيث المهن وقرابة المعارف:</strong>
+        <br>• <strong>المهن:</strong> المذكر: <span class="de-text">Arzt / Lehrer / Ingenieur</span> &larr; المؤنث بإضافة <span class="de-text">-in</span>: <span class="de-text">Ärztin / Lehrerin / Ingenieurin</span>.
+        <br>• <strong>صديق/صديقة:</strong> <span class="de-text">mein Freund</span> (صديقي) &harr; <span class="de-text">meine Freundin</span> (صديقتي).
+        <br>• <strong>زميل/زميلة:</strong> <span class="de-text">mein Kollege</span> (زميلي) &harr; <span class="de-text">meine Kollegin</span> (زميلتي).
+      </div>
+    </div>
+
+    <!-- TAB 4: التعارف، الحال والوداع -->
+    <div id="tab4" class="section-card">
+      <h2>4. أسئلة التعارف، الحال، والوداع</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>المجال</th>
+              <th>صيغة غير رسمية (du)</th>
+              <th>صيغة رسمية (Sie)</th>
+              <th>نموذج الإجابة</th>
+              <th>استماع</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>الاسم</td>
+              <td><span class="de-text">Wie heißt du? / Wer bist du?</span></td>
+              <td><span class="de-text">Wie heißen Sie?</span></td>
+              <td><span class="de-text">Ich heiße Ahmed.</span></td>
+              <td><button class="audio-btn" onclick="speak('Wie heißt du? Ich heiße Ahmed.')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>الموطن</td>
+              <td><span class="de-text">Woher kommst du?</span></td>
+              <td><span class="de-text">Woher kommen Sie?</span></td>
+              <td><span class="de-text">Ich komme aus Ägypten.</span></td>
+              <td><button class="audio-btn" onclick="speak('Woher kommst du? Ich komme aus Ägypten.')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>السكن</td>
+              <td><span class="de-text">Wo wohnst du?</span></td>
+              <td><span class="de-text">Wo wohnen Sie?</span></td>
+              <td><span class="de-text">Ich wohne in Alexandria.</span></td>
+              <td><button class="audio-btn" onclick="speak('Wo wohnst du? Ich wohne in Alexandria.')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>اللغات</td>
+              <td><span class="de-text">Was sprichst du?</span></td>
+              <td><span class="de-text">Was sprechen Sie?</span></td>
+              <td><span class="de-text">Ich spreche Arabisch und Deutsch.</span></td>
+              <td><button class="audio-btn" onclick="speak('Was sprichst du? Ich spreche Arabisch und Deutsch.')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>السؤال عن الحال</td>
+              <td><span class="de-text">Wie geht's? / Wie geht es dir?</span></td>
+              <td><span class="de-text">Wie geht es Ihnen?</span></td>
+              <td><span class="de-text">Danke, gut! Und dir? / Und Ihnen?</span></td>
+              <td><button class="audio-btn" onclick="speak('Wie geht es dir? Danke, gut!')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>الوداع العام</td>
+              <td><span class="de-text">Tschüss! / Bis bald!</span></td>
+              <td><span class="de-text">Auf Wiedersehen!</span></td>
+              <td><span class="de-text">Schönen Tag noch! - Danke, gleichfalls!</span></td>
+              <td><button class="audio-btn" onclick="speak('Auf Wiedersehen! Tschüss!')">🔊</button></td>
+            </tr>
+            <tr>
+              <td>وداع الهاتف فقط</td>
+              <td colspan="2"><span class="de-text">Auf Wiederhören!</span></td>
+              <td>مخصص لإنهاء المكالمات فقط</td>
+              <td><button class="audio-btn" onclick="speak('Auf Wiederhören!')">🔊</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5: الأبجدية، الأرقام والواجب -->
+    <div id="tab5" class="section-card">
+      <h2>5. الأبجدية، الأرقام (0 - 20) وملاحظات الواجب</h2>
+      
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>الحروف الخاصة والإيميل</span>
+            <button class="audio-btn" onclick="speak('ä, ö, ü, ß. Punkt, ät')">🔊</button>
+          </div>
+          <ul style="margin-right: 18px; font-size: 13px;">
+            <li><strong>ä:</strong> إيه مفتوحة (<span class="de-text">Ägypten</span>)</li>
+            <li><strong>ö:</strong> أو مائلة للإي (<span class="de-text">Österreich</span>)</li>
+            <li><strong>ü:</strong> إي مع ضم الشفاه (<span class="de-text">München</span>)</li>
+            <li><strong>ß:</strong> سين مشددة ss (<span class="de-text">heißen</span>)</li>
+            <li><strong>الإيميل:</strong> <code>@ = ät</code> | <code>. = Punkt</code></li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">
+            <span>الأرقام حتى 20 (Zahlen)</span>
+            <button class="audio-btn" onclick="speak('eins, zwei, drei, zehn, sechzehn, siebzehn, zwanzig')">🔊</button>
+          </div>
+          <p style="font-size: 12.5px; line-height: 1.6;">
+            0: <span class="de-text">null</span> | 1: <span class="de-text">eins</span> | 2: <span class="de-text">zwei</span> | 3: <span class="de-text">drei</span><br>
+            4: <span class="de-text">vier</span> | 5: <span class="de-text">fünf</span> | 6: <span class="de-text">sechs</span> | 7: <span class="de-text">sieben</span><br>
+            8: <span class="de-text">acht</span> | 9: <span class="de-text">neun</span> | 10: <span class="de-text">zehn</span> | 11: <span class="de-text">elf</span> | 12: <span class="de-text">zwölf</span><br>
+            <strong>استثناءات 16 و17:</strong><br>
+            16: <span class="de-text">sechzehn</span> (حذف s) | 17: <span class="de-text">siebzehn</span> (حذف en) | 20: <span class="de-text">zwanzig</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="rule-box" style="margin-top: 15px;">
+        <strong>📝 كلمة الواجب (Netzwerk neu ص 6 - 9 و 11):</strong>
+        <br>المفرد: <span class="de-text">die Hausaufgabe</span> | الجمع: <span class="de-text">die Hausaufgaben</span>.
+        <br>الجملة اليومية: <span class="de-text">Ich mache die Hausaufgaben.</span> (أنا أقوم بحل الواجب).
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      document.querySelectorAll('.section-card').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'de-DE';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+  </script>
+</body>
+</html>
